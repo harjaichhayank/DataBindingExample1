@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="contract"
+            type="com.example.dataBinding.Contract" />
+        <variable
+            name="ClickHandler"
+            type="com.example.dataBinding.ClickHandler" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/FirstNameId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@{contract.firstName}" />
+
+        <TextView
+            android:id="@+id/LastNameId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@{contract.lastName}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/simple_click"
+            android:onClick="@{ClickHandler::simpleButtonClick}">
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/simple_long_click"
+            android:onLongClick="@{(theView) -> ClickHandler.simpleButtonLongClick(theView)}">
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/simple_click_with_parameters"
+            android:onClick="@{(v)->ClickHandler.simpleButtonClickWithParam(v,contract)}">
+        </Button>
+
+    </LinearLayout>
+</layout>

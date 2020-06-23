@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    
+    <data>
+        <variable
+            name="contract"
+            type="com.example.dataBinding.Contract" />
+        <variable
+            name="ClickHandler"
+            type="com.example.dataBinding.ClickHandler" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutId"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/ToolBarId"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary">
+        </androidx.appcompat.widget.Toolbar>
+
+        <include
+            android:id="@+id/IncludeId"
+            layout="@layout/other_layout"
+            bind:contract="@{contract}">
+        </include>
+
+    </LinearLayout>
+</layout>
